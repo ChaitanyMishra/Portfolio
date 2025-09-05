@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
-import { useTheme } from "../contexts/ThemeContext";
-import { Card } from "../components/ui/Card";
-import { Button } from "../components/ui/Button";
+import { useTheme } from "../Contexts/ThemeContext";
+import { Card } from "../Components/ui/Card";
+import { Button } from "../Components/ui/Button";
 import { SiGithub } from "react-icons/si";
 import { FaGlobe, FaExternalLinkAlt } from "react-icons/fa";
 void motion;

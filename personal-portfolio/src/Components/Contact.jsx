@@ -2,7 +2,7 @@
 "use client"
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Button } from "../components/ui/Button";
+import { Button }  from "../Components/ui/Button";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext";
@@ -15,6 +15,7 @@ export default function Contact() {
   const { theme } = useTheme()
 
   function validate() {
+    
     const errs = {}
     if (!form.name.trim()) errs.name = 'Name is required'
     if (!form.email.trim()) errs.email = 'Email is required'
@@ -99,39 +100,39 @@ export default function Contact() {
               
               <div className="space-y-6">
                 <motion.div 
-                  className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors w-full"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
                     <FaEnvelope className="text-white text-xl" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-white/70 text-sm">Email</p>
-                    <p className="text-white font-medium">chaitany.mishra.tech@gmail.com</p>
+                    <p className="text-white font-medium break-all">chaitany.mishra.tech@gmail.com</p>
                   </div>
                 </motion.div>
 
                 <motion.div 
-                  className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors w-full"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-500 rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-500 rounded-lg flex items-center justify-center">
                     <FaPhone className="text-white text-xl" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-white/70 text-sm">Phone</p>
                     <p className="text-white font-medium">+91 9305224208</p>
                   </div>
                 </motion.div>
 
                 <motion.div 
-                  className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors w-full"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-500 rounded-lg flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-500 rounded-lg flex items-center justify-center">
                     <FaMapMarkerAlt className="text-white text-xl" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-white/70 text-sm">Location</p>
                     <p className="text-white font-medium">Kanpur, India</p>
                   </div>
@@ -218,13 +219,12 @@ export default function Contact() {
                 {errors.message && <p className="text-sm text-red-400 mt-1">{errors.message}</p>}
               </div>
 
-              <motion.button
-                type="submit"
-                className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                disabled={status === 'sending'}
-              >
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={status === 'sending'}
+                >
                 {status === 'sending' ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -241,7 +241,8 @@ export default function Contact() {
                     Send Message
                   </>
                 )}
-              </motion.button>
+                </Button>
+              </motion.div>
               
               {status === 'error' && (
                 <motion.p 

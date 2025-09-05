@@ -30,7 +30,7 @@ export default function Header() {
     }
   }, [isOpen])
 
-  const navItems = ["Home", "About", "Education", "Projects", "Contacts"]
+  const navItems = ["Home", "About", "Education", "Projects", "Contact"]
 
   return (
   <header className={`fixed top-0 left-0 right-0 z-50 w-full h-auto px-6 flex items-center py-4 justify-between ${theme.colors.glass} backdrop-blur-md border-b border-white/10`}>
@@ -100,39 +100,57 @@ export default function Header() {
       <motion.div
         id="mobile-menu"
         ref={menuRef}
-        className={`fixed md:hidden top-0 right-0 h-screen w-72 ${theme.colors.glass} backdrop-blur-xl p-8 shadow-2xl z-50 transform ${
+        role="dialog"
+        aria-modal="true"
+        className={`fixed md:hidden top-0 right-0 h-screen w-4/5 max-w-xs ${theme.colors.glass} backdrop-blur-xl p-6 shadow-2xl z-50 transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 ease-in-out border-l border-white/10`}
         initial={{ x: "100%", opacity: 0 }}
         animate={{ x: isOpen ? 0 : "100%", opacity: isOpen ? 1 : 0 }}
         transition={{ duration: 0.32, ease: "easeInOut" }}
       >
-        <div className="pt-10">
-          <ul className="flex flex-col text-white text-lg gap-6">
-            {navItems.map((item, index) => (
-              <li key={item}>
-                <motion.a
-                  href={`#${item.toLowerCase()}`}
-                  className="group relative inline-block font-medium overflow-hidden"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const el = document.getElementById(item.toLowerCase());
-                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    setIsOpen(false);
-                  }}
-                  initial={{ opacity: 0, x: 24 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.34, delay: index * 0.06 }}
-                  whileHover={{ x: 8 }}
-                >
-                  <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-[length:200%_100%] bg-clip-text text-transparent group-hover:animate-shine transition-all duration-700">
-                    {item}
-                  </span>
-                  <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:w-full transition-all duration-500 rounded"></span>
-                </motion.a>
-              </li>
-            ))}
-          </ul>
+        <div className="pt-4">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <span className="text-white text-lg font-semibold">Menu</span>
+            </div>
+            <motion.button
+              aria-label="Close menu"
+              onClick={() => setIsOpen(false)}
+              className="p-2 rounded-md text-white hover:bg-white/5"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <X size={20} />
+            </motion.button>
+          </div>
+
+          <nav aria-label="Mobile navigation">
+            <ul className="flex flex-col text-white text-lg gap-4">
+              {navItems.map((item, index) => (
+                <li key={item}>
+                  <motion.a
+                    href={`#${item.toLowerCase()}`}
+                    className="group block font-medium overflow-hidden py-3 px-2 rounded-md hover:bg-white/5"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const el = document.getElementById(item.toLowerCase());
+                      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      setIsOpen(false);
+                    }}
+                    initial={{ opacity: 0, x: 24 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.28, delay: index * 0.06 }}
+                    whileHover={{ x: 6 }}
+                  >
+                    <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-[length:200%_100%] bg-clip-text text-transparent transition-all duration-500">
+                      {item}
+                    </span>
+                  </motion.a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </motion.div>
     </header>

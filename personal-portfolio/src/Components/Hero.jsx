@@ -1,6 +1,7 @@
 
-import { Button } from "../components/ui/Button";
+import { Button } from "../Components/ui/Button";
 import { motion } from 'framer-motion'
+void motion
 import ParallaxBackdrop from './ui/ParallaxBackdrop'
 import ParticleCanvas from './ui/ParticleCanvas'
 
@@ -27,7 +28,20 @@ export default function Hero() {
           Building beautiful, performant web experiences with modern tech.
         </motion.p>
         <motion.div variants={{ hidden: { opacity: 0, scale: 0.96 }, visible: { opacity: 1, scale: 1 } }}>
-          <Button className="text-lg px-8 py-3 shadow-xl hover:scale-105 hover:shadow-indigo-500/40">View My Work</Button>
+          <div className="flex items-center justify-center gap-4">
+            <Button className="text-lg px-8 py-3 shadow-xl hover:scale-105 hover:shadow-indigo-500/40">View My Work</Button>
+
+            {/* Drive search link: opens Google Drive search results in a new tab. Note: browser cannot force-download cross-origin pages; use a direct file URL for immediate download. */}
+            <a
+              href="https://drive.google.com/drive/u/1/search?q=code"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Open Drive search for 'code' (opens in a new tab)"
+              className="inline-block text-lg px-6 py-3 rounded-xl font-semibold transition-all duration-200 shadow-lg bg-white/6 text-white hover:bg-white/10 hover:scale-105"
+            >
+              Download Resume
+            </a>
+          </div>
         </motion.div>
       </motion.div>
     </section>

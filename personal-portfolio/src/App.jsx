@@ -15,7 +15,7 @@ function AppContent() {
   
   return (
     <TooltipProvider>
-      <div className={`min-h-screen bg-gradient-to-br ${theme.colors.primary} text-white transition-all duration-1000`}>
+  <div id="home" className={`min-h-screen bg-gradient-to-br ${theme.colors.primary} text-white transition-all duration-1000`}>
         {/* Cursor Trail Effect */}
         <CursorTrail />
         

@@ -38,7 +38,7 @@ export default function About() {
           
           {/* Resume Download Button */}
           <motion.a
-            href="/Chaitany_resume.pdf"
+            href="/resume.pdf"
             download="Chaitany_Mishra_Resume.pdf"
             className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             whileHover={{ scale: 1.05 }}

@@ -20,6 +20,8 @@ const themeColors = {
 }
 
 export default function ThemeSelector() {
+  // ensure linter recognizes 'motion' as used when JSX transforms can confuse some linters
+  void motion
   const [isOpen, setIsOpen] = useState(false)
   const { currentTheme, themes, changeTheme } = useTheme()
 
@@ -28,16 +30,19 @@ export default function ThemeSelector() {
     setIsOpen(false)
   }
 
+  const CurrentIcon = themeIcons[currentTheme] || Sun
   return (
     <div className="relative">
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-3 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-500 hover:to-purple-500 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.98 }}
         aria-label="Theme selector"
+        aria-expanded={isOpen}
       >
-        <Palette size={20} />
+        <CurrentIcon size={18} />
+        <span className="hidden sm:inline text-sm font-medium">{themes[currentTheme]?.name ?? 'Theme'}</span>
       </motion.button>
 
       <AnimatePresence>
@@ -52,20 +57,22 @@ export default function ThemeSelector() {
               onClick={() => setIsOpen(false)}
             />
             
-            {/* Theme selector panel */}
             <motion.div
-              className="absolute right-0 top-14 w-80 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-2xl z-50"
-              initial={{ opacity: 0, y: -20, scale: 0.95 }}
+              className="absolute right-0 top-14 w-72 bg-white/8 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-2xl z-50"
+              initial={{ opacity: 0, y: -8, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -20, scale: 0.95 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
+              exit={{ opacity: 0, y: -8, scale: 0.98 }}
+              transition={{ duration: 0.18, ease: "easeOut" }}
             >
-              <h3 className="text-white text-lg font-semibold mb-4 flex items-center gap-2">
-                <Palette size={20} />
-                Choose Theme
-              </h3>
-              
-              <div className="grid grid-cols-1 gap-3">
+              <div className="flex items-center justify-between mb-3">
+                <h3 className="text-white text-sm font-semibold flex items-center gap-2">
+                  <Palette size={16} />
+                  Choose Theme
+                </h3>
+                <button onClick={() => setIsOpen(false)} className="text-white/60 hover:text-white p-1 rounded-md">Close</button>
+              </div>
+
+              <div className="space-y-2">
                 {Object.entries(themes).map(([key, theme]) => {
                   const Icon = themeIcons[key]
                   const isSelected = currentTheme === key
@@ -74,52 +81,36 @@ export default function ThemeSelector() {
                     <motion.button
                       key={key}
                       onClick={() => handleThemeChange(key)}
-                      className={`relative p-4 rounded-xl border-2 transition-all duration-300 hover:scale-105 ${
-                        isSelected 
-                          ? 'border-white/50 bg-white/20' 
-                          : 'border-white/20 bg-white/5 hover:bg-white/10'
+                      className={`w-full relative p-2 rounded-lg flex items-center gap-3 transition-all duration-200 text-left ${
+                        isSelected ? 'bg-white/12 border border-white/20' : 'hover:bg-white/6'
                       }`}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      whileHover={{ scale: 1.01 }}
                     >
-                      <div className="flex items-center gap-3">
-                        <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${themeColors[key]} flex items-center justify-center`}>
-                          <Icon size={20} className="text-white" />
-                        </div>
-                        
-                        <div className="flex-1 text-left">
-                          <div className="text-white font-medium">{theme.name}</div>
-                          <div className="text-white/60 text-sm">
-                            {key === 'dark' && 'Classic dark theme with purple accents'}
-                            {key === 'light' && 'Clean light theme with blue tones'}
-                            {key === 'cyberpunk' && 'Neon cyberpunk with electric vibes'}
-                            {key === 'ocean' && 'Deep ocean blues and teals'}
-                            {key === 'sunset' && 'Warm sunset oranges and pinks'}
-                          </div>
-                        </div>
-                        
-                        {isSelected && (
-                          <motion.div
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center"
-                          >
-                            <Check size={14} className="text-white" />
-                          </motion.div>
-                        )}
+                      <div className={`w-10 h-10 rounded-md bg-gradient-to-br ${themeColors[key]} flex items-center justify-center`}> 
+                        <Icon size={16} className="text-white" />
                       </div>
-                      
-                      {/* Preview gradient */}
-                      <div className={`absolute inset-0 rounded-xl bg-gradient-to-br ${themeColors[key]} opacity-10 pointer-events-none`} />
+                      <div className="flex-1">
+                        <div className="text-white font-medium text-sm">{theme.name}</div>
+                        <div className="text-white/60 text-xs truncate">
+                          {key === 'dark' && 'Classic dark theme with purple accents'}
+                          {key === 'light' && 'Clean light theme with blue tones'}
+                          {key === 'cyberpunk' && 'Neon cyberpunk with electric vibes'}
+                          {key === 'ocean' && 'Deep ocean blues and teals'}
+                          {key === 'sunset' && 'Warm sunset oranges and pinks'}
+                        </div>
+                      </div>
+                      {isSelected && (
+                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                          <Check size={12} className="text-white" />
+                        </div>
+                      )}
                     </motion.button>
                   )
                 })}
               </div>
-              
-              <div className="mt-4 pt-4 border-t border-white/20">
-                <p className="text-white/60 text-xs text-center">
-                  Theme preferences are saved automatically
-                </p>
+
+              <div className="mt-3 pt-3 border-t border-white/10">
+                <p className="text-white/60 text-xs text-center">Theme preferences are saved automatically</p>
               </div>
             </motion.div>
           </>
