@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brighter light theme tokens */
+    --background: 210 60% 98%;
+    --foreground: 220 12% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 12% 18%;
+    --primary: 250 80% 52%; /* vivid indigo */
+    --accent: 190 90% 45%; /* bright cyan */
+    --muted: 220 14% 96%;
+    --border: 220 14% 92%;
+    --ring: 220 90% 62%;
+    --radius: 0.75rem
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(9,10,21,0.06), transparent 10%), radial-gradient(1000px 500px at 90% 90%, rgba(14,165,233,0.04), transparent 10%), linear-gradient(180deg,#fbfdff,#f6fbff 60%);
+    color: rgb(var(--foreground));
+    background-attachment: fixed;
+  }
+}
+
+/* global button micro-interactions */
+.btn-smooth {
+  @apply transition-transform duration-200 ease-out;
+}
+.btn-smooth:hover {
+  transform: translateY(-3px) scale(1.01);
+}

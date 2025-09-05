@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme tokens (H S% L%) - brighter teal + coral accent */
+    --background: 204 90% 98%;
+    --foreground: 215 14% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 14% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 14% 14%;
+    --primary: 193 90% 45%; /* teal */
+    --primary-foreground: 210 14% 100%;
+    --secondary: 260 70% 50%; /* indigo */
+    --secondary-foreground: 215 14% 14%;
+    --muted: 210 30% 96%;
+    --muted-foreground: 215 16% 55%;
+    --accent: 14 100% 58%; /* coral/orange */
+    --accent-foreground: 210 14% 100%;
+    --destructive: 0 80% 56%;
+    --destructive-foreground: 210 14% 100%;
+    --border: 215 14% 94%;
+    --input: 215 14% 96%;
+    --ring: 193 95% 60%;
+    --chart-1: 193 70% 45%;
+    --chart-2: 260 70% 50%;
+    --chart-3: 28 90% 58%;
+    --chart-4: 200 70% 45%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.75rem;
+  }
+  .dark {
+    --background: 220 12% 8%;
+    --foreground: 220 14% 96%;
+    --card: 220 12% 12%;
+    --card-foreground: 220 14% 96%;
+    --popover: 220 12% 10%;
+    --popover-foreground: 220 14% 96%;
+    --primary: 193 90% 60%;
+    --primary-foreground: 220 14% 10%;
+    --secondary: 260 70% 56%;
+    --secondary-foreground: 220 14% 96%;
+    --muted: 220 14% 12%;
+    --muted-foreground: 220 14% 70%;
+    --accent: 14 100% 64%;
+    --accent-foreground: 220 14% 96%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 220 14% 96%;
+    --border: 220 14% 16%;
+    --input: 220 14% 12%;
+    --ring: 193 90% 50%;
+    --chart-1: 193 80% 60%;
+    --chart-2: 260 70% 50%;
+    --chart-3: 28 90% 58%;
+    --chart-4: 200 70% 45%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-gradient-to-br from-[#f7fbfe] via-[#f1f7fb] to-[#eef8ff] text-foreground bg-fixed;
+  }
+}
+
+/* global button micro-interactions */
+.btn-smooth {
+  @apply transition-transform duration-200 ease-out;
+}
+.btn-smooth:hover {
+  transform: translateY(-3px) scale(1.01);
+}

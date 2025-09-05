@@ -1,0 +1,80 @@
+
+@tailwind utilities;
+
+/* Base overrides */
+@layer base {
+  * {
+    border-color: #e5e7eb; /* gray.200 */
+  }
+  body {
+    background-color: #0f172a; /* slate-950 */
+    color: white;
+    font-family: system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(to right, #22d3ee, #8b5cf6, #22d3ee);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient 8s linear infinite;
+    background-size: 200% 200%;
+  }
+
+  .glass-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .glow-button {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to right, #8b5cf6, #22d3ee);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .glow-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.25);
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #8b5cf6, #22d3ee);
+    transform: translateX(-50%);
+  }
+}
+
+/* Keyframes */
+@keyframes gradient {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+@keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-20px);} }
+@keyframes glow { 0%{box-shadow:0 0 5px #22d3ee,0 0 10px #22d3ee,0 0 15px #22d3ee;}100%{box-shadow:0 0 10px #22d3ee,0 0 20px #22d3ee,0 0 30px #22d3ee;} }
+@keyframes fadeIn { 0%{opacity:0;}100%{opacity:1;} }
+@keyframes slideInLeft {0%{transform:translateX(-100px);opacity:0;}100%{transform:translateX(0);opacity:1;} }
+@keyframes slideInRight {0%{transform:translateX(100px);opacity:0;}100%{transform:translateX(0);opacity:1;} }
+
+/* Animation classes */
+.animate-gradient { animation: gradient 8s linear infinite; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-glow { animation: glow 2s ease-in-out infinite alternate; }
+.animate-fadeIn { animation: fadeIn 0.5s ease-in-out; }
+.animate-slideInLeft { animation: slideInLeft 0.5s ease-out; }
+.animate-slideInRight { animation: slideInRight 0.5s ease-out; }
