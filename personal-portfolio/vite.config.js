@@ -6,6 +6,7 @@ import path from 'path'
 const __dirname = new URL('.', import.meta.url).pathname
 
 export default defineConfig({
+  base: '/Portfolio/personal-portfolio/', // ✅ Add this line
   plugins: [react()],
   resolve: {
     alias: {
