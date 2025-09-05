@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme tokens (H S% L%) */
+  --background: 210 30% 98%;
+  --foreground: 220 12% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 12% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 12%;
+    --primary: 260 70% 55%; /* violet */
+    --primary-foreground: 220 14% 98%;
+    --secondary: 210 50% 60%; /* soft cyan */
+    --secondary-foreground: 220 13% 12%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 13% 50%;
+    --accent: 290 60% 60%;
+    --accent-foreground: 220 14% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 14% 98%;
+    --border: 220 14% 92%;
+    --input: 220 14% 96%;
+    --ring: 260 80% 60%;
+    --chart-1: 260 70% 55%;
+    --chart-2: 200 70% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.75rem }
+  .dark {
+  --background: 230 14% 8%;
+  --foreground: 230 12% 96%;
+  --card: 230 14% 6%;
+  --card-foreground: 230 12% 96%;
+  --popover: 230 14% 6%;
+  --popover-foreground: 230 12% 96%;
+  --primary: 260 90% 70%;
+  --primary-foreground: 230 12% 10%;
+  --secondary: 200 50% 32%;
+  --secondary-foreground: 230 12% 96%;
+  --muted: 230 14% 12%;
+  --muted-foreground: 230 12% 66%;
+  --accent: 280 60% 52%;
+  --accent-foreground: 230 12% 96%;
+  --destructive: 0 62% 38%;
+  --destructive-foreground: 230 12% 96%;
+  --border: 230 14% 14%;
+  --input: 230 14% 12%;
+  --ring: 260 80% 60%;
+  --chart-1: 260 70% 55%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55% }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-gradient-to-br from-[#f7fbfe] via-[#f1f7fb] to-[#eef8ff] text-foreground bg-fixed;
+  }
+}
+
+/* global button micro-interactions */
+.btn-smooth {
+  @apply transition-transform duration-200 ease-out;
+}
+.btn-smooth:hover {
+  transform: translateY(-3px) scale(1.01);
+}
