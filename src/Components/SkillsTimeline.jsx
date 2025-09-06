@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Tilt from 'react-parallax-tilt'
-import { useTheme } from '../contexts/ThemeContext'
+import { useTheme } from '../Contexts/ThemeContext'
 void motion;
 
 const skills = [

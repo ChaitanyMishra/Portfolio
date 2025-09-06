@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 import { FaGithub, FaLinkedin, FaMapMarkerAlt, FaPhone, FaEnvelope, FaDownload } from "react-icons/fa";
-import { useTheme } from "../contexts/ThemeContext";
+import { useTheme } from "../Contexts/ThemeContext";
 import Typewriter from "./ui/Typewriter";
 void motion;
 

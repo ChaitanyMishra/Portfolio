@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
-import { useTheme } from "../contexts/ThemeContext";
+import { useTheme } from "../Contexts/ThemeContext";
 import { FaGraduationCap, FaCertificate, FaCode, FaBookOpen } from "react-icons/fa";
 void motion;
 

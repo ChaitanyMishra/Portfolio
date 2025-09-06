@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { SiGithub, SiLinkedin, SiGmail } from "react-icons/si";
 import { FaHeart, FaCode, FaRocket, FaTwitter } from "react-icons/fa";
-import { useTheme } from "../contexts/ThemeContext";
+import { useTheme } from "../Contexts/ThemeContext";
 void motion;
 
 const socialLinks = [

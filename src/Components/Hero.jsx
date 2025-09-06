@@ -55,9 +55,9 @@ export default function Hero() {
             </Button>
 
             <a
-              href="/chaitany_tech_resume.pdf"   // ✅ Correct usage
+              href="/resume.pdf"   // ✅ Correct usage
               target="_blank"
-              download="Chaitanya_Mishra_Resume.pdf"
+              download="resume.pdf"
               rel="noopener noreferrer"
               className="inline-block text-lg px-6 py-3 rounded-xl font-semibold transition-all duration-200 shadow-lg bg-white/6 text-white hover:bg-white/10 hover:scale-105"
             >
