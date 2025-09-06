@@ -27,7 +27,6 @@ export default function Hero() {
         >
           Chaitanya Mishra
         </motion.h1>
-<<<<<<< HEAD
         <motion.h2
           className="text-2xl md:text-3xl font-semibold text-indigo-300 mb-6"
           variants={{
@@ -43,19 +42,6 @@ export default function Hero() {
         >
           Building beautiful, performant web experiences with modern tech.
         </motion.p>
-=======
-        <motion.h2 className="text-2xl md:text-3xl  font-semibold text-indigo-300 mb-6" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-          Full Stack Developer
-        </motion.h2>
-        <motion.p className="text-lg md:text-xl text-white/80 mb-13 " variants={{ hidden: { opacity: 0 }, visible: { opacity: 0.95 } }}>
-          Building beautiful, performant web experiences with modern tech.
-        </motion.p>
-        
-        <motion.div variants={{ hidden: { opacity: 0, scale: 0.96 }, visible: { opacity: 1, scale: 1 } }}>
-          <div className="flex items-center justify-center gap-4">
-          
-            <Button className="tex t-lg px-8 py-4 shadow-xl hover:scale-105 hover:shadow-indigo-500/40">View My Work</Button>
->>>>>>> 381fc39 (add resume)
 
         <motion.div
           variants={{
