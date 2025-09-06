@@ -1,4 +1,4 @@
-import { cn } from "../../src/lib/utils";
+import { cn } from "@/lib/utils";
 
 export function Button({ className, children, ...props }) {
   // prevent Framer Motion props (and other animation props) from being forwarded to the DOM button
