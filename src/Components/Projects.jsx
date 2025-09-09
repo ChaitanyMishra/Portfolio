@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
+// Fixed import path for case-sensitive environments
 import { useTheme } from "../contexts/ThemeContext";
 import { Card } from "../Components/ui/Card";
 import { Button } from "../Components/ui/Button";
