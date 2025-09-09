@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Button }  from "../Components/ui/Button";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from "react-icons/fa";
-import { useTheme } from "../Contexts/ThemeContext";
+import { useTheme } from "../contexts/ThemeContext";
 void motion;
 
 export default function Contact() {

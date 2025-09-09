@@ -13,5 +13,5 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  base: './', // ✅ works on Netlify/Surge
+  base: './',
 })

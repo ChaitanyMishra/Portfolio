@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { Menu, X } from "lucide-react" // icons
 import { motion } from "framer-motion"
-import { useTheme } from "../Contexts/ThemeContext"
+import { useTheme } from "../contexts/ThemeContext"
 import ThemeSelector from "./ui/ThemeSelector"
 void motion;
 

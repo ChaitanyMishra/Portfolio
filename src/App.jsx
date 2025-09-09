@@ -6,7 +6,7 @@ import Footer from "./Components/Footer";
 import Projects from "./Components/Projects";
 import Contact from "./Components/Contact";
 import CursorTrail from "./Components/ui/CursorTrail";
-import { ThemeProvider, useTheme } from "./Contexts/ThemeContext"
+import { ThemeProvider, useTheme } from "./contexts/ThemeContext"
 
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 

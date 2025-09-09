@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Palette, Check, Sun, Moon, Zap, Waves, Sunset } from 'lucide-react'
-import { useTheme } from '../../Contexts/ThemeContext'
+import { useTheme } from '../../contexts/ThemeContext'
 
 const themeIcons = {
   dark: Moon,
