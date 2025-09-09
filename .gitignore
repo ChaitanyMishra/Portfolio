@@ -158,3 +158,6 @@ dist-ssr
 *.sln
 *.sw?
 >>>>>>> 7e30597 (add resume)
+
+# Local Netlify folder
+.netlify
