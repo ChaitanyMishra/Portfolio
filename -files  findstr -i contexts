@@ -1,0 +1,10 @@
+[33mb2cc5b5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m fix: MIME type issues for JavaScript modules
+[33m436b15f[m add: netlify.toml configuration for deployment
+[33m7a8f7f7[m fix: force fresh build with correct import paths
+[33m70b293c[m fix: add ThemeContext.jsx in lowercase contexts folder
+[33m2b9174a[m fix: correct import paths
+[33md67483a[m fix: regenerate package-lock.json
+[33m6a7a9cb[m update build
+[33m533587c[m Fix import paths for lib and Contexts
+[33m6a6c212[m Fix import to match Context folder casing
+[33m11677f3[m Fix Hero component and clean assets

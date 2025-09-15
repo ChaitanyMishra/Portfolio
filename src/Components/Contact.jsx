@@ -76,7 +76,7 @@ export default function Contact() {
             Get In Touch
           </motion.h2>
           <motion.p 
-            className="text-white/70 text-lg max-w-2xl mx-auto"
+            className={`${theme.colors.textSecondary} text-lg max-w-2xl mx-auto`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -95,8 +95,8 @@ export default function Contact() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <div className={`${theme.colors.glass} backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl`}>
-              <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
+            <div className={`${theme.colors.card} rounded-2xl p-8 border border-white/20`}>
+              <h3 className={`text-2xl font-bold ${theme.colors.cardText} mb-6`}>Let's Connect</h3>
               
               <div className="space-y-6">
                 <motion.div 
@@ -107,8 +107,8 @@ export default function Contact() {
                     <FaEnvelope className="text-white text-xl" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-white/70 text-sm">Email</p>
-                    <p className="text-white font-medium break-all">chaitany.mishra.tech@gmail.com</p>
+                    <p className={`${theme.colors.cardText} opacity-70 text-sm`}>Email</p>
+                    <p className={`${theme.colors.cardText} font-medium break-all`}>chaitany.mishra.tech@gmail.com</p>
                   </div>
                 </motion.div>
 
@@ -120,8 +120,8 @@ export default function Contact() {
                     <FaPhone className="text-white text-xl" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-white/70 text-sm">Phone</p>
-                    <p className="text-white font-medium">+91 9305224208</p>
+                    <p className={`${theme.colors.cardText} opacity-70 text-sm`}>Phone</p>
+                    <p className={`${theme.colors.cardText} font-medium`}>+91 9305224208</p>
                   </div>
                 </motion.div>
 
@@ -133,21 +133,21 @@ export default function Contact() {
                     <FaMapMarkerAlt className="text-white text-xl" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-white/70 text-sm">Location</p>
-                    <p className="text-white font-medium">Kanpur, India</p>
+                    <p className={`${theme.colors.cardText} opacity-70 text-sm`}>Location</p>
+                    <p className={`${theme.colors.cardText} font-medium`}>Kanpur, India</p>
                   </div>
                 </motion.div>
               </div>
 
               {/* Social Links */}
               <div className="mt-8 pt-6 border-t border-white/20">
-                <p className="text-white/70 text-sm mb-4">Follow me on</p>
+                <p className={`${theme.colors.cardText} opacity-70 text-sm mb-4`}>Follow me on</p>
                 <div className="flex gap-4">
                   <motion.a
                     href="https://github.com/ChaitanyMishra"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center text-white text-2xl transition-all duration-300"
+                    className={`w-12 h-12 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center ${theme.colors.cardText} text-2xl transition-all duration-300`}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -157,7 +157,7 @@ export default function Contact() {
                     href="https://www.linkedin.com/in/chaitany-dev-hash/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center text-white text-2xl transition-all duration-300"
+                    className={`w-12 h-12 bg-white/10 hover:bg-white/20 rounded-lg flex items-center justify-center ${theme.colors.cardText} text-2xl transition-all duration-300`}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -175,13 +175,13 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className={`${theme.colors.glass} backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl`}
+            className={`${theme.colors.card} rounded-2xl p-8 border border-white/20`}
           >
-            <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
+            <h3 className={`text-2xl font-bold ${theme.colors.cardText} mb-6`}>Send a Message</h3>
             
             <div className="space-y-6">
               <div>
-                <label className="block text-sm font-medium mb-2 text-white/80">Name</label>
+                <label className={`block text-sm font-medium mb-2 ${theme.colors.cardText} opacity-80`}>Name</label>
                 <input
                   value={form.name}
                   onChange={(e) => setForm((s) => ({ ...s, name: e.target.value }))}
@@ -194,7 +194,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2 text-white/80">Email</label>
+                <label className={`block text-sm font-medium mb-2 ${theme.colors.cardText} opacity-80`}>Email</label>
                 <input
                   value={form.email}
                   onChange={(e) => setForm((s) => ({ ...s, email: e.target.value }))}
@@ -207,7 +207,7 @@ export default function Contact() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2 text-white/80">Message</label>
+                <label className={`block text-sm font-medium mb-2 ${theme.colors.cardText} opacity-80`}>Message</label>
                 <textarea
                   value={form.message}
                   onChange={(e) => setForm((s) => ({ ...s, message: e.target.value }))}

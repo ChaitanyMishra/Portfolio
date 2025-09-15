@@ -33,12 +33,12 @@ export default function Header() {
   const navItems = ["Home", "About", "Education", "Projects", "Contact"]
 
   return (
-  <header className={`fixed top-0 left-0 right-0 z-50 w-full h-auto px-6 flex items-center py-4 justify-between ${theme.colors.glass} backdrop-blur-md border-b border-white/10`}>
+  <header className={`fixed top-0 left-0 right-0 z-50 w-full h-auto px-6 flex items-center py-4 justify-between ${theme.colors.glass} border-b border-white/10`}>
       
       {/* Name / Logo */}
               <motion.a
         href="#"
-        className="group relative inline-block text-white text-2xl sm:text-4xl font-bold overflow-hidden"
+        className={`group relative inline-block ${theme.colors.text} text-2xl sm:text-4xl font-bold overflow-hidden`}
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -51,7 +51,7 @@ export default function Header() {
 
       {/* Desktop Nav */}
       <nav className="hidden md:flex items-center gap-6">
-        <ul className="flex text-white text-lg gap-6">
+        <ul className={`flex ${theme.colors.text} text-lg gap-6`}> 
           {navItems.map((item, index) => (
             <li key={item}>
               <motion.a
@@ -62,7 +62,7 @@ export default function Header() {
                   const el = document.getElementById(id);
                   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }}
-                className="group relative inline-block font-medium overflow-hidden hover:text-white"
+                className={`group relative inline-block font-medium overflow-hidden hover:opacity-90 rounded-md px-2 py-1 hover:bg-white/5 transition-colors`}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.08, ease: 'easeOut' }}
@@ -84,7 +84,7 @@ export default function Header() {
         <motion.button
           aria-controls="mobile-menu"
           aria-expanded={isOpen}
-          className="text-white z-50"
+          className={`${theme.colors.text} z-50 drop-shadow`}
           onClick={() => setIsOpen(!isOpen)}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -96,13 +96,13 @@ export default function Header() {
         </motion.button>
       </div>
       {/* Mobile Dropdown + overlay */}
-  {isOpen && <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40" aria-hidden onClick={() => setIsOpen(false)} />}
+  {isOpen && <div className="fixed inset-0 bg-black/70 backdrop-blur-md z-40" aria-hidden onClick={() => setIsOpen(false)} />}
       <motion.div
         id="mobile-menu"
         ref={menuRef}
         role="dialog"
         aria-modal="true"
-        className={`fixed md:hidden top-0 right-0 h-screen w-4/5 max-w-xs ${theme.colors.glass} backdrop-blur-xl p-6 shadow-2xl z-50 transform ${
+        className={`fixed md:hidden top-0 right-0 h-screen w-4/5 max-w-xs ${theme.colors.card} p-6 z-50 transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 ease-in-out border-l border-white/10`}
         initial={{ x: "100%", opacity: 0 }}
@@ -112,7 +112,7 @@ export default function Header() {
         <div className="pt-4">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <span className="text-white text-lg font-semibold">Menu</span>
+              <span className={`${theme.colors.text} text-lg font-semibold drop-shadow`}>Menu</span>
             </div>
             <motion.button
               aria-label="Close menu"

@@ -16,7 +16,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=500&h=300&fit=crop&crop=center",
     description: "A powerful image search engine built with React that integrates Unsplash and Pixabay APIs. Features infinite scroll, real-time search, image preview, and download functionality. Optimized for performance with lazy loading and responsive design.",
     github: "https://github.com/ChaitanyMishra/api-image-generator",
-    live: "https://api-image-generator-j7bd-git-main-chaitanymishras-projects.vercel.app/",
+    live: "https://api-image-generator-gz1c.vercel.app/",
     tech: ["React", "JavaScript", "API Integration", "Tailwind CSS", "Vercel"],
     color: "from-blue-500 to-cyan-500",
     featured: true
@@ -133,7 +133,7 @@ export default function Projects() {
                   viewport={{ once: true }}
                   className="group h-full"
                 >
-                  <div className={`${theme.colors.glass} backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 h-full`}>
+                  <div className={`${theme.colors.card} border border-white/20 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 h-full`}>
                   {/* Project Image */}
                   <div className="relative overflow-hidden">
                     <img 
@@ -165,11 +165,11 @@ export default function Projects() {
 
                   {/* Project Content */}
                   <div className="p-6">
-                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
+                    <h3 className={`text-2xl font-bold ${theme.colors.cardText} mb-3 group-hover:text-cyan-300 transition-colors`}>
                       {project.title}
                     </h3>
                     
-                    <p className="text-white/70 text-sm leading-relaxed mb-4">
+                    <p className={`${theme.colors.cardText} opacity-80 text-sm leading-relaxed mb-4`}>
                       {project.description}
                     </p>
 
@@ -178,7 +178,7 @@ export default function Projects() {
                       {project.tech.map((tech, techIdx) => (
                         <span 
                           key={techIdx}
-                          className="px-3 py-1 bg-white/10 text-white/80 text-xs rounded-full border border-white/20 hover:bg-white/20 transition-colors"
+                          className={`px-3 py-1 bg-white/10 ${theme.colors.cardText} opacity-80 text-xs rounded-full border border-white/20 hover:bg-white/20 transition-colors`}
                         >
                           {tech}
                         </span>
@@ -191,7 +191,7 @@ export default function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-lg border border-white/20 transition-all duration-300 hover:scale-105"
+                        className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 ${theme.colors.cardText} text-sm font-medium rounded-lg border border-white/20 transition-all duration-300 hover:scale-105`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
@@ -242,7 +242,7 @@ export default function Projects() {
                   viewport={{ once: true }}
                   className="group h-full"
                 >
-                  <div className={`${theme.colors.glass} backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 h-full`}>
+                  <div className={`${theme.colors.card} border border-white/20 rounded-2xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 h-full`}>
                   {/* Project Image */}
                   <div className="relative overflow-hidden">
                     <img 
@@ -267,11 +267,11 @@ export default function Projects() {
 
                   {/* Project Content */}
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
+                    <h3 className={`text-xl font-bold ${theme.colors.cardText} mb-3 group-hover:text-cyan-300 transition-colors`}>
                       {project.title}
                     </h3>
                     
-                    <p className="text-white/70 text-sm leading-relaxed mb-4">
+                    <p className={`${theme.colors.cardText} opacity-80 text-sm leading-relaxed mb-4`}>
                       {project.description}
                     </p>
 
@@ -280,7 +280,7 @@ export default function Projects() {
                       {project.tech.map((tech, techIdx) => (
                         <span 
                           key={techIdx}
-                          className="px-3 py-1 bg-white/10 text-white/80 text-xs rounded-full border border-white/20 hover:bg-white/20 transition-colors"
+                          className={`px-3 py-1 bg-white/10 ${theme.colors.cardText} opacity-80 text-xs rounded-full border border-white/20 hover:bg-white/20 transition-colors`}
                         >
                           {tech}
                         </span>
@@ -293,7 +293,7 @@ export default function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-lg border border-white/20 transition-all duration-300 hover:scale-105"
+                        className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 ${theme.colors.cardText} text-sm font-medium rounded-lg border border-white/20 transition-all duration-300 hover:scale-105`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >

@@ -1,22 +1,20 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Palette, Check, Sun, Moon, Zap, Waves, Sunset } from 'lucide-react'
+import { Palette, Check, Sun, Moon, Zap, Waves, Sunset, Leaf } from 'lucide-react'
 import { useTheme } from '../../contexts/ThemeContext'
 
 const themeIcons = {
   dark: Moon,
-  light: Sun,
   cyberpunk: Zap,
   ocean: Waves,
-  sunset: Sunset
+  emerald: Leaf
 }
 
 const themeColors = {
   dark: 'from-slate-800 to-purple-900',
-  light: 'from-blue-50 to-indigo-100 ',
   cyberpunk: 'from-black via-purple-900 to-pink-900',
   ocean: 'from-slate-900 via-blue-900 to-cyan-900',
-  sunset: 'from-orange-900 via-red-900 to-pink-900'
+  emerald: 'from-emerald-600 to-teal-700'
 }
 
 export default function ThemeSelector() {
@@ -79,7 +77,7 @@ export default function ThemeSelector() {
 
               <div className="space-y-2">
                 {Object.entries(themes).map(([key, theme]) => {
-                  const Icon = themeIcons[key]
+                  const Icon = themeIcons[key] || Sun
                   const isSelected = currentTheme === key
                   
                   return (
@@ -91,7 +89,7 @@ export default function ThemeSelector() {
                       }`}
                       whileHover={{ scale: 1.01 }}
                     >
-                      <div className={`w-10 h-10 rounded-md bg-gradient-to-br ${themeColors[key]} flex items-center justify-center`}> 
+                      <div className={`w-10 h-10 rounded-md bg-gradient-to-br ${themeColors[key] || 'from-slate-500 to-zinc-700'} flex items-center justify-center`}> 
                         <Icon size={16} className="text-white" />
                       </div>
                       <div className="flex-1">
@@ -102,6 +100,7 @@ export default function ThemeSelector() {
                           {key === 'cyberpunk' && 'Neon cyberpunk with electric vibes'}
                           {key === 'ocean' && 'Deep ocean blues and teals'}
                           {key === 'sunset' && 'Warm sunset oranges and pinks'}
+                          {key === 'emerald' && 'Emerald teal with soft contrast'}
                         </div>
                       </div>
                       {isSelected && (

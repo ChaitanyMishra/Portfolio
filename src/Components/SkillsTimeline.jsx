@@ -51,7 +51,7 @@ export default function SkillsTimeline() {
             Skills & Expertise
           </motion.h2>
           <motion.p 
-            className="text-white/70 text-lg max-w-2xl mx-auto"
+            className={`${theme.colors.textSecondary} text-lg max-w-2xl mx-auto`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -71,13 +71,13 @@ export default function SkillsTimeline() {
                 viewport={{ once: true, amount: 0.3 }}
                 className="group h-full"
               >
-                <div className={`${theme.colors.glass} backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 h-full`}>
+                <div className={`${theme.colors.card} border border-white/20 rounded-2xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 h-full`}>
                 <div className="flex items-center gap-4 mb-4">
                   <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${skill.color} flex items-center justify-center text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     {skill.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-1">
+                    <h3 className={`text-xl font-bold ${theme.colors.cardText} group-hover:text-cyan-300 transition-colors mb-1`}>
                       {skill.title}
                     </h3>
                     <div className="flex items-center gap-2">
@@ -97,7 +97,7 @@ export default function SkillsTimeline() {
                   </div>
                 </div>
                 
-                <p className="text-white/70 text-sm leading-relaxed mb-4">
+                <p className={`${theme.colors.cardText} opacity-80 text-sm leading-relaxed mb-4`}>
                   {skill.meta}
                 </p>
                 
