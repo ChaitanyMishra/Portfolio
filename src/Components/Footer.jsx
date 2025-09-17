@@ -63,10 +63,10 @@ const Footer = () => {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent drop-shadow">
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
               Chaitany Mishra
             </h3>
-            <p className={`${theme.colors.textSecondary} leading-relaxed drop-shadow`}>
+            <p className="text-white/70 leading-relaxed">
               Frontend Developer passionate about creating beautiful, functional, and user-friendly web experiences. 
               Let's build something amazing together!
             </p>
@@ -79,7 +79,7 @@ const Footer = () => {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-12 h-12 bg-white/10 ${link.bgColor} rounded-lg flex items-center justify-center ${theme.colors.cardText} text-xl transition-all duration-300 ${link.color}`}
+                    className={`w-12 h-12 bg-white/10 ${link.bgColor} rounded-lg flex items-center justify-center text-white text-xl transition-all duration-300 ${link.color}`}
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     initial={{ opacity: 0, y: 20 }}
@@ -103,13 +103,13 @@ const Footer = () => {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h4 className={`text-xl font-semibold ${theme.colors.text} mb-4 drop-shadow`}>Quick Links</h4>
+            <h4 className="text-xl font-semibold text-white mb-4">Quick Links</h4>
             <div className="space-y-3">
               {['About', 'Skills', 'Projects', 'Contact'].map((link, index) => (
                 <motion.a
                   key={link}
                   href={`#${link.toLowerCase()}`}
-                  className={`block ${theme.colors.textSecondary} hover:text-cyan-300 transition-colors duration-300 hover:translate-x-2`}
+                  className="block text-white/70 hover:text-cyan-300 transition-colors duration-300 hover:translate-x-2"
                   whileHover={{ x: 8 }}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -130,12 +130,12 @@ const Footer = () => {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h4 className={`text-xl font-semibold ${theme.colors.text} mb-4 drop-shadow`}>Tech Stack</h4>
+            <h4 className="text-xl font-semibold text-white mb-4">Tech Stack</h4>
             <div className="flex flex-wrap gap-2">
               {['React', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind', 'Git'].map((tech, index) => (
                 <motion.span
                   key={tech}
-                  className={`px-3 py-1 bg-white/10 ${theme.colors.cardText} opacity-80 text-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors`}
+                  className="px-3 py-1 bg-white/10 text-white/80 text-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -158,10 +158,10 @@ const Footer = () => {
           className="pt-8 border-t border-white/20"
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className={`${theme.colors.textSecondary} text-sm`}>
+            <div className="text-white/60 text-sm">
               &copy; {new Date().getFullYear()} Chaitany Mishra. All rights reserved.
             </div>
-            <div className={`flex items-center gap-2 ${theme.colors.textSecondary} text-sm`}>
+            <div className="flex items-center gap-2 text-white/60 text-sm">
               <span>Made with</span>
               <motion.span
                 animate={{ scale: [1, 1.2, 1] }}

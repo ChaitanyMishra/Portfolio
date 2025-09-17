@@ -6,14 +6,14 @@ import { FaGraduationCap, FaCertificate, FaCode, FaBookOpen } from "react-icons/
 void motion;
 
 const education = {
-  degree: "Bachelor in Computer Applications",
+  degree: "Bachelor of Computer Applications",
   college: "Maharana Pratap College of Professional Studies",
   semester: "5th Semester",
   cgpa: "7.24/10 (till 4th semester)",
   certifications: [
     {
       name: "Code-o-Fiesta 2.0 — Participant Certificate",
-      link: "https://drive.google.com/drive/u/1/search?q=code hackathon",
+      link: "/hackathon.pdf",
       desc: "Participated in Code-o-Fiesta 2.0 hackathon"
     }
   ],
@@ -49,15 +49,14 @@ export default function Education() {
   const [activeTab, setActiveTab] = useState('education');
   const base = useMemo(() => import.meta.env.BASE_URL || '/', []);
   const certificates = useMemo(() => ([
-    { title: "Code-O-Fiesta 2.0", file: "Chaitany Mishra Code-O-Fiesta 2.0 Participation Certificate.pdf" },
+    { title: "Code-O-Fiesta 2.0 Hackathon", file: "Chaitany Mishra Code-O-Fiesta 2.0 Participation Certificate.pdf" },
     { title: "Python Mania 3.0", file: "PYTHON MANIA 3.O (1).pdf" },
-    { title: "JavaScript Intermediate", file: "javascript_intermediate certificate.pdf" },
-    { title: "Python Basic", file: "python_basic certificate.pdf" },
+    { title: "JavaScript Intermediate Hackerrank", file: "javascript_intermediate certificate.pdf" },
+    { title: "Python Basic Hackerrank", file: "python_basic certificate.pdf" },
     { title: "Udemy JavaScript", file: "UdemyJavaScript.pdf" },
-    { title: "Cyber Security", file: "cyberSecurty.pdf" },
-    { title: "Resume", file: "resume.pdf" },
-    { title: "Chaitany Resume Variant", file: "chaitany-mishra_2.pdf" },
-    { title: "Chaitany Doc", file: "Chaitany_Mishra_4828384.pdf" },
+    { title: "Cyber Security Job semulation", file: "cyberSecurty.pdf" },
+    { title: "SEO Crash Course", file: "chaitany-mishra_2.pdf" },
+    { title: "TCS iON Young Professional Program", file: "Chaitany_Mishra_4828384.pdf" },
   ]), []);
   
   return (
