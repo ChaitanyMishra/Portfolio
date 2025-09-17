@@ -49,7 +49,7 @@ export default function Education() {
   const [activeTab, setActiveTab] = useState('education');
   const base = useMemo(() => import.meta.env.BASE_URL || '/', []);
   const certificates = useMemo(() => ([
-    { title: "Code-O-Fiesta 2.0 Hackathon", file: "Chaitany Mishra Code-O-Fiesta 2.0 Participation Certificate.pdf" },
+    { title: "Code-O-Fiesta 2.0 Hackathon", file: "hackathon.pdf" },
     { title: "Python Mania 3.0", file: "PYTHON MANIA 3.O (1).pdf" },
     { title: "JavaScript Intermediate Hackerrank", file: "javascript_intermediate certificate.pdf" },
     { title: "Python Basic Hackerrank", file: "python_basic certificate.pdf" },
