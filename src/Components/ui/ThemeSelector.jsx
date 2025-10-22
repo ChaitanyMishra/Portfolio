@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaPalette, FaCheck, FaSun, FaMoon, FaBolt, FaWater, FaSunset, FaLeaf } from 'react-icons/fa'
+import { FaPalette, FaCheck, FaSun, FaMoon, FaBolt, FaWater, FaLeaf } from 'react-icons/fa'
 import { useTheme } from '../../contexts/ThemeContext'
 
 const themeIcons = {
