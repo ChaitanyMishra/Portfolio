@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Sun, Moon } from 'lucide-react'
+import { FaSun, FaMoon } from 'react-icons/fa'
 
 export default function DarkModeToggle() {
   const [mounted, setMounted] = useState(false)
@@ -42,7 +42,7 @@ export default function DarkModeToggle() {
       className="p-2 rounded-md bg-gradient-to-r from-indigo-600 to-cyan-400 hover:from-indigo-500 hover:to-cyan-300 text-white shadow-md"
       title="Toggle dark mode"
     >
-      {dark ? <Sun size={18} /> : <Moon size={18} />}
+      {dark ? <FaSun size={18} /> : <FaMoon size={18} />}
     </button>
   )
 }

@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Palette, Check, Sun, Moon, Zap, Waves, Sunset, Leaf } from 'lucide-react'
+import { FaPalette, FaCheck, FaSun, FaMoon, FaBolt, FaWater, FaSunset, FaLeaf } from 'react-icons/fa'
 import { useTheme } from '../../contexts/ThemeContext'
 
 const themeIcons = {
-  dark: Moon,
-  cyberpunk: Zap,
-  ocean: Waves,
-  emerald: Leaf
+  dark: FaMoon,
+  cyberpunk: FaBolt,
+  ocean: FaWater,
+  emerald: FaLeaf
 }
 
 const themeColors = {
@@ -28,7 +28,7 @@ export default function ThemeSelector() {
     setIsOpen(false)
   }
 
-  const CurrentIcon = themeIcons[currentTheme] || Sun
+  const CurrentIcon = themeIcons[currentTheme] || FaSun
   return (
     <div className="relative ">
       <motion.button
@@ -69,7 +69,7 @@ export default function ThemeSelector() {
             >
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-white text-sm font-semibold flex items-center gap-2">
-                  <Palette size={16} />
+                  <FaPalette size={16} />
                   Choose Theme
                 </h3>
                 <button onClick={() => setIsOpen(false)} className="text-white/60 hover:text-white p-1 rounded-md">Close</button>
@@ -77,7 +77,7 @@ export default function ThemeSelector() {
 
               <div className="space-y-2">
                 {Object.entries(themes).map(([key, theme]) => {
-                  const Icon = themeIcons[key] || Sun
+                  const Icon = themeIcons[key] || FaSun
                   const isSelected = currentTheme === key
                   
                   return (
@@ -105,7 +105,7 @@ export default function ThemeSelector() {
                       </div>
                       {isSelected && (
                         <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                          <Check size={12} className="text-white" />
+                          <FaCheck size={12} className="text-white" />
                         </div>
                       )}
                     </motion.button>
