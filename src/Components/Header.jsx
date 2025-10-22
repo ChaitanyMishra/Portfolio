@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { Menu, X } from "lucide-react" // icons
+import { FaBars, FaTimes } from "react-icons/fa" // icons
 import { motion } from "framer-motion"
 import { useTheme } from "../contexts/ThemeContext"
 import ThemeSelector from "./ui/ThemeSelector"
@@ -92,7 +92,7 @@ export default function Header() {
           whileTap={{ scale: 0.9 }}
           transition={{ duration: 0.2 }}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
         </motion.button>
       </div>
       {/* Mobile Dropdown + overlay */}
@@ -121,7 +121,7 @@ export default function Header() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <X size={20} />
+              <FaTimes size={20} />
             </motion.button>
           </div>
 
