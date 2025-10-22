@@ -11,7 +11,6 @@ export default function Hero() {
         <ParallaxBackdrop />
         <ParticleCanvas />
       </div>
-
       <motion.div
         className="max-w-2xl mx-auto relative z-10"
         initial="hidden"
@@ -30,7 +29,6 @@ export default function Hero() {
         >
           Chaitanya Mishra
         </motion.h1>
-
         <motion.h2
           className="text-xl sm:text-2xl md:text-3xl font-semibold text-indigo-300 mb-6 px-4"
           variants={{
@@ -40,7 +38,6 @@ export default function Hero() {
         >
           Full Stack Developer
         </motion.h2>
-
         <motion.p
           className="text-base sm:text-lg md:text-xl text-white/80 mb-8 px-4"
           variants={{ hidden: { opacity: 0 }, visible: { opacity: 0.95 } }}
@@ -55,7 +52,6 @@ export default function Hero() {
           }}
         >
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-4">
-            
             <Button
               className="text-base sm:text-lg px-6 sm:px-8 py-3 shadow-xl hover:scale-105 hover:shadow-indigo-500/40 w-full sm:w-auto"
               onClick={() => {
@@ -66,15 +62,34 @@ export default function Hero() {
               View My Work
             </Button>
 
-            {/* Simple and reliable download link */}
-            <a
-              href="resume.pdf"
-              download="Chaitany_Mishra_Resume.pdf"
+            <button
               className="inline-block text-base sm:text-lg px-6 py-3 rounded-xl font-semibold transition-all duration-200 shadow-lg bg-white/6 text-white hover:bg-white/10 hover:scale-105 w-full sm:w-auto text-center"
+              onClick={async () => {
+                try {
+                  const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`;
+                  const response = await fetch(resumeUrl);
+                  if (!response.ok) {
+                    throw new Error('Failed to fetch resume');
+                  }
+                  const blob = await response.blob();
+                  const url = window.URL.createObjectURL(blob);
+                  const link = document.createElement('a');
+                  link.href = url;
+                  link.download = 'Chaitany_Mishra_Resume.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                  window.URL.revokeObjectURL(url);
+                } catch (error) {
+                  console.error('Error downloading resume:', error);
+                  // Fallback: open in new tab
+                  const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`;
+                  window.open(resumeUrl, '_blank');
+                }
+              }}
             >
               Download Resume
-            </a>
-
+            </button>
           </div>
         </motion.div>
       </motion.div>

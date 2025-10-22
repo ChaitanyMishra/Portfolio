@@ -6,14 +6,14 @@ import { FaGraduationCap, FaCertificate, FaCode, FaBookOpen } from "react-icons/
 void motion;
 
 const education = {
-  degree: "Bachelor of Computer Applications",
+  degree: "Bachelor in Computer Applications",
   college: "Maharana Pratap College of Professional Studies",
   semester: "5th Semester",
   cgpa: "7.24/10 (till 4th semester)",
   certifications: [
     {
       name: "Code-o-Fiesta 2.0 — Participant Certificate",
-      link: "/hackathon.pdf",
+      link: "https://drive.google.com/drive/u/1/search?q=code hackathon",
       desc: "Participated in Code-o-Fiesta 2.0 hackathon"
     }
   ],
@@ -49,12 +49,12 @@ export default function Education() {
   const [activeTab, setActiveTab] = useState('education');
   const base = useMemo(() => import.meta.env.BASE_URL || '/', []);
   const certificates = useMemo(() => ([
-    { title: "Code-O-Fiesta 2.0 Hackathon", file: "hackathon.pdf" },
+    { title: "Code-O-Fiesta 2.0", file: "hackathon.pdf" },
     { title: "Python Mania 3.0", file: "PYTHON MANIA 3.O (1).pdf" },
-    { title: "JavaScript Intermediate Hackerrank", file: "javascript_intermediate certificate.pdf" },
-    { title: "Python Basic Hackerrank", file: "python_basic certificate.pdf" },
+    { title: "JavaScript Intermediate", file: "javascript_intermediate certificate.pdf" },
+    { title: "Python Basic", file: "python_basic certificate.pdf" },
     { title: "Udemy JavaScript", file: "UdemyJavaScript.pdf" },
-    { title: "Cyber Security Job semulation", file: "cyberSecurty.pdf" },
+    { title: "Cyber Security", file: "cyberSecurty.pdf" },
     { title: "SEO Crash Course", file: "chaitany-mishra_2.pdf" },
     { title: "TCS iON Young Professional Program", file: "Chaitany_Mishra_4828384.pdf" },
   ]), []);
@@ -98,30 +98,30 @@ export default function Education() {
         {/* Sub navigation tabs */}
         <div className="max-w-3xl mx-auto mb-12">
           <div className={`${theme.colors.glass} rounded-xl p-1 border border-white/20 shadow-xl w-full`} role="tablist" aria-label="Education tabs">
-            <div className="grid grid-cols-3 gap-1">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-1">
               <button
                 role="tab"
                 aria-selected={activeTab === 'education'}
-                className={`py-3 px-4 rounded-lg font-semibold transition-all ${activeTab === 'education' ? 'bg-white/15 text-white shadow-inner' : 'text-white/80 hover:text-white hover:bg-white/5'}`}
+                className={`py-3 px-2 sm:px-4 rounded-lg font-semibold transition-all text-sm sm:text-base ${activeTab === 'education' ? 'bg-white/15 text-white shadow-inner' : 'text-white/80 hover:text-white hover:bg-white/5'}`}
                 onClick={() => setActiveTab('education')}
               >
-                Education
+                <span className="truncate">Education</span>
               </button>
               <button
                 role="tab"
                 aria-selected={activeTab === 'certifications'}
-                className={`py-3 px-4 rounded-lg font-semibold transition-all ${activeTab === 'certifications' ? 'bg-white/15 text-white shadow-inner' : 'text-white/80 hover:text-white hover:bg-white/5'}`}
+                className={`py-3 px-2 sm:px-4 rounded-lg font-semibold transition-all text-sm sm:text-base ${activeTab === 'certifications' ? 'bg-white/15 text-white shadow-inner' : 'text-white/80 hover:text-white hover:bg-white/5'}`}
                 onClick={() => setActiveTab('certifications')}
               >
-                Certifications
+                <span className="truncate">Certifications</span>
               </button>
               <button
                 role="tab"
                 aria-selected={activeTab === 'techstack'}
-                className={`py-3 px-4 rounded-lg font-semibold transition-all ${activeTab === 'techstack' ? 'bg-white/15 text-white shadow-inner' : 'text-white/80 hover:text-white hover:bg-white/5'}`}
+                className={`py-3 px-2 sm:px-4 rounded-lg font-semibold transition-all text-sm sm:text-base ${activeTab === 'techstack' ? 'bg-white/15 text-white shadow-inner' : 'text-white/80 hover:text-white hover:bg-white/5'}`}
                 onClick={() => setActiveTab('techstack')}
               >
-                Tech Stack
+                <span className="truncate">Tech Stack</span>
               </button>
             </div>
           </div>
@@ -243,7 +243,7 @@ export default function Education() {
         )}
 
         {activeTab === 'education' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
             {coreSubjects.map((subject, idx) => (
               <Tilt key={subject.name} glareEnable={true} glareMaxOpacity={0.2} scale={1.05} className="rounded-xl">
                 <motion.div
@@ -251,14 +251,14 @@ export default function Education() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: idx * 0.05 }}
                   viewport={{ once: true }}
-                  className={`${theme.colors.card} rounded-xl p-4 border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 group`}
+                  className={`${theme.colors.card} rounded-xl p-3 sm:p-4 border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 group`}
                 >
-                  <div className="flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${subject.color} flex items-center justify-center text-lg shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-r ${subject.color} flex items-center justify-center text-sm sm:text-lg shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
                       {subject.icon}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <h4 className="text-white font-medium text-sm group-hover:text-cyan-300 transition-colors leading-tight">
+                      <h4 className="text-white font-medium text-xs sm:text-sm group-hover:text-cyan-300 transition-colors leading-tight">
                         {subject.name}
                       </h4>
                     </div>
@@ -270,7 +270,7 @@ export default function Education() {
         )}
 
         {activeTab === 'certifications' && (
-          <div role="tabpanel" aria-label="Certifications" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div role="tabpanel" aria-label="Certifications" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {certificates.map((c, idx) => (
               <Tilt key={c.file} glareEnable glareMaxOpacity={0.2} scale={1.02} className="rounded-xl">
                 <motion.div
@@ -281,30 +281,55 @@ export default function Education() {
                   className={`${theme.colors.glass} rounded-xl border border-white/20 shadow-2xl overflow-hidden`}
                 >
                   <div className="bg-gradient-to-r from-cyan-400/20 to-purple-500/20 py-3 px-4 border-b border-white/10">
-                    <h3 className="text-white font-semibold drop-shadow truncate">{c.title}</h3>
+                    <h3 className="text-white font-semibold drop-shadow truncate text-sm sm:text-base">{c.title}</h3>
                   </div>
-                  <div className="p-4">
+                  <div className="p-3 sm:p-4">
                     <div className="bg-white rounded-[14px] shadow-[inset_0_2px_6px_rgba(0,0,0,0.08)] p-2">
                       <div className="rounded-[10px] overflow-hidden border border-zinc-200 shadow-xl">
-                        <object data={`${base}${encodeURIComponent(c.file)}`} type="application/pdf" width="100%" height="220">
-                          <iframe src={`${base}${encodeURIComponent(c.file)}`} title={c.title} width="100%" height="220" />
-                        </object>
+                        {/* Mobile-friendly PDF display */}
+                        <div className="relative">
+                          <object 
+                            data={`${base}${encodeURIComponent(c.file)}`} 
+                            type="application/pdf" 
+                            width="100%" 
+                            height="200"
+                            className="hidden sm:block"
+                          >
+                            <iframe 
+                              src={`${base}${encodeURIComponent(c.file)}`} 
+                              title={c.title} 
+                              width="100%" 
+                              height="200"
+                              className="hidden sm:block"
+                            />
+                          </object>
+                          {/* Mobile fallback */}
+                          <div className="sm:hidden bg-gray-100 rounded-lg h-48 flex items-center justify-center">
+                            <div className="text-center p-4">
+                              <div className="w-16 h-16 mx-auto mb-3 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
+                                <FaCertificate className="text-white text-2xl" />
+                              </div>
+                              <p className="text-gray-600 text-sm font-medium">{c.title}</p>
+                              <p className="text-gray-500 text-xs mt-1">Tap to view PDF</p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between gap-3 px-4 pb-4">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 sm:gap-3 px-3 sm:px-4 pb-3 sm:pb-4">
                     <a
                       href={`${base}${encodeURIComponent(c.file)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/15 text-white font-medium shadow"
+                      className="flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg bg-white/10 hover:bg-white/15 text-white font-medium shadow text-center text-sm sm:text-base transition-colors"
                     >
-                      View
+                      View PDF
                     </a>
                     <a
                       href={`${base}${encodeURIComponent(c.file)}`}
                       download
-                      className="px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-semibold shadow"
+                      className="flex-1 sm:flex-none px-3 sm:px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white font-semibold shadow text-center text-sm sm:text-base transition-colors"
                     >
                       Download
                     </a>
@@ -316,16 +341,18 @@ export default function Education() {
         )}
 
         {activeTab === 'techstack' && (
-          <div role="tabpanel" aria-label="Tech Stack" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center">
+          <div role="tabpanel" aria-label="Tech Stack" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 place-items-center">
             {[
               { name: 'HTML5', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg' },
               { name: 'CSS3', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg' },
               { name: 'JavaScript (ES6)', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
               { name: 'React.js', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original-wordmark.svg' },
+              { name: 'Node.js', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg' },
+              { name: 'Express.js', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg' },
+              { name: 'MongoDB', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg' },
               { name: 'TailwindCSS', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original-wordmark.svg' },
               { name: 'Git', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original-wordmark.svg' },
-              { name: 'GitHub', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg' },
-              { name: 'shadcn/ui', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/browserstack/browserstack-plain.svg' }
+              { name: 'GitHub', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original-wordmark.svg' }
             ].map((t, idx) => (
               <Tilt key={t.name} glareEnable glareMaxOpacity={0.2} scale={1.05} className="rounded-xl w-full flex items-center justify-center">
                 <motion.div
@@ -333,7 +360,7 @@ export default function Education() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45, delay: idx * 0.05 }}
                   viewport={{ once: true }}
-                  className="w-full max-w-[180px]"
+                  className="w-full max-w-[140px] sm:max-w-[180px]"
                 >
                   <div className={`${theme.colors.glass} rounded-[14px] p-2 border border-white/20 shadow-[0_6px_20px_rgba(0,0,0,0.18)]`}> 
                     <div className="rounded-[10px] overflow-hidden border border-white/20 shadow-inner bg-white/10 backdrop-blur-md flex items-center justify-center">
@@ -343,11 +370,11 @@ export default function Education() {
                         title={t.name}
                         loading="lazy"
                         decoding="async"
-                        className="w-28 h-28 object-contain"
+                        className="w-20 h-20 sm:w-28 sm:h-28 object-contain"
                       />
                     </div>
                   </div>
-                  <span className={`${theme.colors.cardText} mt-2 block text-center text-sm font-medium`}>{t.name}</span>
+                  <span className={`${theme.colors.cardText} mt-2 block text-center text-xs sm:text-sm font-medium truncate`}>{t.name}</span>
                 </motion.div>
               </Tilt>
             ))}
